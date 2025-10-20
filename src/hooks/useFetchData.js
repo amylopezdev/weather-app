@@ -11,7 +11,6 @@ export const useFetchData = (city, url) => {
       const response = await fetch(url);
       const result = await response.json();
       setData(result);
-      console.log(result.list);
     } catch (error) {
       setIsError(true);
     } finally {
