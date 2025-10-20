@@ -14,16 +14,18 @@ export const Search = () => {
   return (
     <section className="search">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Search a city</label>
-        <input
-          id="search"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-          className="search-input"
-        />
-        <button type="submit" className="search-btn">
-          Search
-        </button>
+        <label htmlFor="search">Search a city name</label>
+        <div className="search-bar">
+          <input
+            id="search"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-btn">
+            Search
+          </button>
+        </div>
       </form>
     </section>
   );
