@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CityContext } from "./context/CityContext";
 import { Search } from "./components/Search/Search";
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
+import "./App.css";
 
 const App = () => {
   const [city, setCity] = useState("");

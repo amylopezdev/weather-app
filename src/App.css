@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+NKo+Unjoined:wght@400..700&display=swap");
+
+:root {
+  --body-background-color: rgb(188, 218, 234);
+  --font-color: rgb(1, 28, 42);
+  --font-family: "Noto Sans NKo Unjoined", sans-serif;
+  --normal-font-size: 1.15rem;
+  --large-font-size: 2.5rem;
+  --normal-font-weight: 300;
+  --bold-font-weight: 700;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-background-color);
+  color: var(--font-color);
+  font-family: var(--font-family);
+  font-size: var(-normal-font-size);
+  font-weight: var(--normal-font-weight);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+    width: 100vw;
+    max-width: 30rem;
+}
+
+@media screen and (min-width: 700px) {
+  main {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
