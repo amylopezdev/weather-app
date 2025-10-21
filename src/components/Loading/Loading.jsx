@@ -1,5 +1,3 @@
-import "./Loading.css";
-
-export const Loading = ({ message }) => {
-  return <div className="loading-message">{message}</div>;
+export const Loading = ({ message = "Loading..." }) => {
+  return <div className="loading">{message}</div>;
 };
