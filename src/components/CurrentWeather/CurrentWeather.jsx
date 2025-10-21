@@ -13,7 +13,8 @@ export const CurrentWeather = () => {
 
   const { isLoading, isError, data } = useFetchData(city, apiUrl);
 
-  if (isLoading) return <Loading message="Loading current weather conditions"/>;
+  if (isLoading)
+    return <Loading message="Loading current weather conditions" />;
   if (isError) return <Error />;
   return (
     <section className="current-weather">
@@ -22,6 +23,14 @@ export const CurrentWeather = () => {
         <br />
         {data?.name}, {data?.sys?.country}
       </h2>
+      <ul>
+        <li className="main-temp">{data?.main?.temp}ºF</li>
+        <li>
+          High: {data?.main?.temp_max}º | Low: {data?.main?.temp_min}º
+        </li>
+        <li> Feels like: {data?.main?.feels_like}º</li>
+        <li> {data?.main?.humidity}% humidity</li>
+      </ul>
     </section>
   );
 };
