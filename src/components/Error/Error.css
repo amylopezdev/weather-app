@@ -1,0 +1,9 @@
+.error div:nth-child(1){
+    color: var(--error);
+    font-size: 1.25rem;
+}
+
+.error-message {
+    text-transform: capitalize;
+    font-style: italic;
+}

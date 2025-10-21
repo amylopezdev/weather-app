@@ -1,7 +1,10 @@
-import './Error.css';
+import "./Error.css";
 
-export const Error = () => {
+export const Error = ({ message = "something went wrong" }) => {
   return (
-    <div>Error</div>
+    <div className="error">
+      <div>Error</div>
+      <div className="error-message">{message}</div>
+    </div>
   );
 };
