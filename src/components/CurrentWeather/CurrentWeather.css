@@ -1,7 +1,7 @@
 h2 {
   font-size: var(--normal-font-size);
   font-weight: var(--normal-font-weight);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .current-weather ul li {
@@ -9,5 +9,12 @@ h2 {
 }
 
 .current-weather .main-temp {
-    font-size: var(--large-font-size);
+  font-size: var(--large-font-size);
+  display: flex;
+  align-items: flex-start;
+}
+
+.main-temp span {
+  font-size: var(--normal-font-size);
+  margin-top: 0.2rem;
 }

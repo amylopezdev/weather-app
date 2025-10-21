@@ -1,0 +1,10 @@
+.unit-change-text {
+  margin-top: 1rem;
+}
+
+.unit-change-btn {
+  background-color: transparent;
+  border: none;
+  margin-top: 0.25rem;
+  text-decoration: underline;
+}
