@@ -8,7 +8,7 @@ export const UnitChange = () => {
   const capitalisedUnit = unit[0].toUpperCase() + unit.substring(1);
 
   return (
-    <>
+    <div>
       <div className="unit-change-text">
         Results are shown in {capitalisedUnit}
       </div>
@@ -20,6 +20,6 @@ export const UnitChange = () => {
       >
         Show results in {unit === "fahrenheit" ? "Celsius" : "Fahrenheit"}
       </button>
-    </>
+    </div>
   );
 };
