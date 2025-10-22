@@ -1,20 +1,32 @@
 import { useEffect, useState } from "react";
 
-export const useFetchData = (city, url) => {
+export const useFetchData = (city, currWeatherUrl, fiveDayForecastUrl) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [data, setData] = useState();
+  const [currentWeatherData, setCurrentWeatherData] = useState();
+  const [fiveDayForecastData, setFiveDayForecastData] = useState();
 
   const getWeather = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-      setData(result);
-    } catch {
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
+    if (city === "") {
+      return;
+    } else {
+      setIsLoading(true);
+      try {
+        const response = await fetch(currWeatherUrl);
+        const data = await response.json();
+        setCurrentWeatherData(data);
+        const forecastResponse = await fetch(fiveDayForecastUrl);
+        const forecastData = await forecastResponse.json();
+        const dailyForecast = forecastData?.list.filter(
+          (item, index) => index % 8 === 0
+        );
+        setFiveDayForecastData(dailyForecast);
+        setIsError(false)
+      } catch {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -22,5 +34,5 @@ export const useFetchData = (city, url) => {
     getWeather();
   }, [city]);
 
-  return { isLoading, isError, data };
+  return { isLoading, isError, currentWeatherData, fiveDayForecastData };
 };

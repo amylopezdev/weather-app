@@ -1,25 +1,9 @@
 import { useContext } from "react";
-import { CityContext } from "../../context/CityContext";
 import { UnitContext } from "../../context/UnitContext";
-import { useFetchData } from "../../hooks/useFetchData";
-import { Loading } from "../Loading/Loading";
-import { Error } from "../Error/Error";
 import "./CurrentWeather.css";
 
-export const CurrentWeather = () => {
-  const { city } = useContext(CityContext);
+export const CurrentWeather = ({ data }) => {
   const { unit, converterFunc } = useContext(UnitContext);
-
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
-  const { isLoading, isError, data } = useFetchData(city, apiUrl);
-
-  const errorStatus = data?.cod.toString().charAt(0) === "4";
-
-  if (isLoading)
-    return <Loading message="Loading Current Weather Conditions..." />;
-  if (isError || errorStatus) return <Error message={data.message} />;
   return (
     <section className="current-weather">
       <h2>
