@@ -43,6 +43,7 @@ main {
   body {
     background-color: var(--desktop-background-color);
   }
+
   main {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 2rem;
@@ -55,7 +56,6 @@ button {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
-  border: none;
   background-color: transparent;
 }
 
@@ -66,6 +66,10 @@ ul {
 h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.location-btn {
   margin-bottom: 1rem;
 }
 
