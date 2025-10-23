@@ -69,6 +69,13 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.location-btn, .unit-change-btn {
+  background-color: transparent;
+  border: none;
+  margin-top: 0.25rem;
+  text-decoration: underline;
+}
+
 .location-btn {
   margin-bottom: 1rem;
 }
