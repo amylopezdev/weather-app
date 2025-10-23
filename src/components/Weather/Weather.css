@@ -4,11 +4,11 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-.current-weather ul li {
+.weather div {
   margin: 0.25rem 0;
 }
 
-.current-weather .main-temp {
+.weather .main-temp {
   font-size: var(--large-font-size);
   display: flex;
   align-items: flex-start;
