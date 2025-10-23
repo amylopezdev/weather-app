@@ -1,7 +1,7 @@
 .daily-forecast {
     background-color: white;
     padding: .25rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: var(--box-shadow);
 }
 
 .daily-forecast div {
