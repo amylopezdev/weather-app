@@ -1,5 +1,5 @@
 h2 {
-  font-size: var(--normal-font-size);
+  font-size: 1.25rem;
   font-weight: var(--normal-font-weight);
   margin-bottom: 0.5rem;
 }
@@ -16,5 +16,9 @@ h2 {
 
 .main-temp span {
   font-size: var(--normal-font-size);
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
+}
+
+.description {
+  text-transform: capitalize;
 }
