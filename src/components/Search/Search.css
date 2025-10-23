@@ -4,7 +4,7 @@
 
 .search-bar {
   margin-top: 0.5rem;
-  max-width: 20rem;
+  max-width: var(--max-width);
   border: solid 1px var(--font-color);
   border-radius: 2px;
   display: flex;
