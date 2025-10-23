@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CityContext } from "./context/CityContext";
 import { UnitContext } from "./context/UnitContext";
-import { useFetchData } from "./hooks/useFetchData";
+import { useFetchWeather } from "./hooks/useFetchWeather";
 import { Loading } from "./components/Loading/Loading";
 import { Error } from "./components/Error/Error";
 import { Search } from "./components/Search/Search";
@@ -19,9 +19,9 @@ const App = () => {
   const fiveDayForecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
 
   const { isLoading, isError, currentWeatherData, fiveDayForecastData } =
-    useFetchData(city, currentWeatherApiUrl, fiveDayForecastApiUrl);
+    useFetchWeather(city, currentWeatherApiUrl, fiveDayForecastApiUrl);
 
-  const converterFunc = (temp) => {
+  const tempConverter = (temp) => {
     if (typeof temp === "number") {
       if (unit === "fahrenheit") {
         return Math.round(temp);
@@ -39,7 +39,7 @@ const App = () => {
       <h1 className="title">Weather</h1>
       <CityContext value={{ city, setCity }}>
         <Search />
-        <UnitContext value={{ unit, setUnit, converterFunc }}>
+        <UnitContext value={{ unit, setUnit, tempConverter }}>
           {isError && <Error message={currentWeatherData.message} />}
           {isLoading && <Loading />}
           {!isError && !isLoading && currentWeatherData && (
@@ -47,10 +47,16 @@ const App = () => {
           )}
           {!isError && !isLoading && fiveDayForecastData && (
             <>
-              <FiveDayForecast data={fiveDayForecastData} />
-              <UnitChange />
+              <FiveDayForecast data={fiveDayForecastData}/>
             </>
           )}
+          {!isError &&
+            !isLoading &&
+            (currentWeatherData || fiveDayForecastData) && (
+              <>
+                <UnitChange />
+              </>
+            )}
           {!isLoading && city && (
             <button
               className="clear-btn"
