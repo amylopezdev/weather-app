@@ -22,10 +22,7 @@ export const DailyForecast = ({ forecastData }) => {
         );
       })}
       <div>High: {tempConverter(forecastData?.main?.temp_max)}º</div>
-      <div>
-        Low:
-        {tempConverter(forecastData?.main?.temp_min)}º
-      </div>
+      <div>Low: {tempConverter(forecastData?.main?.temp_min)}º</div>
     </li>
   );
 };
