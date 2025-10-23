@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useFetchData = (city, currWeatherUrl, fiveDayForecastUrl) => {
+export const useFetchWeather = (city, currWeatherUrl, fiveDayForecastUrl) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [currentWeatherData, setCurrentWeatherData] = useState();
@@ -17,11 +17,11 @@ export const useFetchData = (city, currWeatherUrl, fiveDayForecastUrl) => {
         setCurrentWeatherData(data);
         const forecastResponse = await fetch(fiveDayForecastUrl);
         const forecastData = await forecastResponse.json();
-        const dailyForecast = forecastData?.list.filter(
+        const dailyForecasts = forecastData?.list.filter(
           (item, index) => index % 8 === 0
         );
-        setFiveDayForecastData(dailyForecast);
-        setIsError(false)
+        setFiveDayForecastData(dailyForecasts);
+        setIsError(false);
       } catch {
         setIsError(true);
       } finally {
