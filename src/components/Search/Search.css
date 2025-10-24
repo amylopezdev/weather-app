@@ -2,11 +2,6 @@
   margin-bottom: 1.5rem;
 }
 
-.info-text {
-  color: var(--error);
-  margin: .25rem 0;
-}
-
 .search-bar {
   margin-top: 0.5rem;
   max-width: var(--max-width);
