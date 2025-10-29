@@ -38,7 +38,7 @@ const App = () => {
       return;
     }
   };
-
+  
   return (
     <main>
       <h1 className="title">Weather</h1>
@@ -52,6 +52,7 @@ const App = () => {
             </button>
           </>
         )}
+         </CityContext>
         <UnitContext value={{ unit, setUnit, tempConverter }}>
           {isError && <Error message={currentWeatherData?.message} />}
           {isLoading && <Loading />}
@@ -85,7 +86,6 @@ const App = () => {
             </button>
           )}
         </UnitContext>
-      </CityContext>
     </main>
   );
 };
